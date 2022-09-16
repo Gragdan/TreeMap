@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 public class NobleComparator implements Comparator<Person> {
-    int maxLenthSurname = 3;// предельное число частей фамилии, учитываемых в расчете знатности
+    int maxLenthSurname = 4;// предельное число частей фамилии, учитываемых в расчете знатности
     int first;
     int second;
 
