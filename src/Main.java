@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -21,12 +20,29 @@ public class Main {
         people.add(ion);
         people.add(van);
 
-        Comparator nobility = new NobleComparator();
-        Collections.sort(people, nobility);
 
+        people.sort((o1, o2) -> {
+            int maxLenthSurname = 3;// предельное число частей фамилии, учитываемых в расчете знатности
+            int first;
+            int second;
+            if (o1.countWord() > maxLenthSurname) {
+                first = maxLenthSurname;
+            } else {
+                first = o1.countWord();
+            }
+            if (o2.countWord() > maxLenthSurname) {
+                second = maxLenthSurname;
+            } else {
+                second = o2.countWord();
+            }
+            if (first - second != 0) {
+                return first - second;
+            } else {
+                return o1.getAge() - o2.getAge();
+            }
+        });
+        people.forEach(System.out::println);
 
-        for ( Person p : people) {
-            System.out.println(p.toString());
-        }
     }
+
 }
