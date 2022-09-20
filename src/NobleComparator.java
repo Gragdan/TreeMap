@@ -7,15 +7,15 @@ public class NobleComparator implements Comparator<Person> {
 
     @Override
     public int compare(Person o1, Person o2) {
-        if (o1.countWord(o1.getSurname()) > maxLenthSurname) {
+        if (o1.countWord() > maxLenthSurname) {
             first = maxLenthSurname;
         } else {
-            first = o1.countWord(o1.getSurname());
+            first = o1.countWord();
         }
-        if (o2.countWord(o2.getSurname()) > maxLenthSurname) {
+        if (o2.countWord() > maxLenthSurname) {
             second = maxLenthSurname;
         } else {
-            second = o2.countWord(o2.getSurname());
+            second = o2.countWord();
         }
         if (first - second != 0) {
             return first - second;

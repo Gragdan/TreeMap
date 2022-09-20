@@ -34,7 +34,7 @@ public class Person {
     {
         return name + " " + surname + " " + age;
     }
-    public int countWord(String surname){
+    public int countWord(){
         String[] arrWords = surname.split("\\P{IsAlphabetic}+");
         return arrWords.length;
     }
